@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html lang="my">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Digital Boost Services</title>
+<link href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css" rel="stylesheet">
+<style>
+:root {
+  --bg:#f0f0f0;
+  --text:#222;
+  --card-bg:#fff;
+  --primary:#4a148c;
+  --secondary:#ff4081;
+}
+body {
+  font-family: Arial, sans-serif;
+  margin:0;
+  background:var(--bg);
+  color:var(--text);
+  transition:background 0.3s,color 0.3s;
+}
+header {
+  text-align:center;
+  padding:30px 20px;
+  background:linear-gradient(135deg,#4a148c,#7b1fa2);
+  color:white;
+  position:sticky;
+  top:0;
+  z-index:100;
+}
+header h1 { margin:0;font-size:2rem;animation:glow 2s infinite alternate; }
+@keyframes glow { from{text-shadow:0 0 5px #fff;} to{text-shadow:0 0 20px #ff4081;} }
+.container {
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(140px,1fr));
+  gap:20px;
+  padding:20px;
+}
+.card {
+  background:var(--card-bg);
+  padding:20px;
+  border-radius:16px;
+  text-align:center;
+  cursor:pointer;
+  box-shadow:0 4px 12px rgba(0,0,0,0.15);
+  transition:transform 0.3s, box-shadow 0.3s;
+}
+.card:hover {
+  transform:scale(1.08) rotate(-1deg);
+  box-shadow:0 10px 24px rgba(0,0,0,0.25);
+}
+.card i { font-size:40px;margin-bottom:10px;color:var(--primary); }
+.section {
+  background:#e8e0f8;
+  margin:20px;
+  padding:20px;
+  border-radius:12px;
+  display:none;
+  animation:fade 0.5s ease;
+}
+@keyframes fade { from{opacity:0;transform:translateY(20px);} to{opacity:1;transform:translateY(0);} }
+.section h3 {
+  margin-top:0;
+  color:var(--primary);
+  display:flex;
+  align-items:center;
+  gap:10px;
+}
+.section select {
+  margin-top:15px;
+  padding:8px;
+  border-radius:5px;
+  width:90%;
+}
+button.buy {
+  margin-top:15px;
+  padding:10px 15px;
+  border:none;
+  background:var(--secondary);
+  color:white;
+  border-radius:8px;
+  cursor:pointer;
+  transition:0.3s;
+}
+button.buy:hover { background:#ff79b0; }
+
+/* Floating Chat */
+.chat-btn {
+  position:fixed;
+  bottom:20px;
+  right:20px;
+  background:var(--secondary);
+  color:white;
+  border:none;
+  border-radius:50%;
+  width:60px;
+  height:60px;
+  font-size:28px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  cursor:pointer;
+  box-shadow:0 4px 12px rgba(0,0,0,0.3);
+}
+
+/* Dark mode */
+.dark {
+  --bg:#121212;
+  --text:#f0f0f0;
+  --card-bg:#1e1e1e;
+  --primary:#bb86fc;
+  --secondary:#ff4081;
+}
+.toggle {
+  position:absolute;
+  top:20px;
+  right:20px;
+  background:white;
+  border:none;
+  border-radius:20px;
+  padding:6px 12px;
+  cursor:pointer;
+}
+</style>
+</head>
+<body>
+
+<header>
+  <h1>🚀 Digital Boost Services</h1>
+  <p>Choose your platform below</p>
+  <button class="toggle" onclick="toggleMode()">🌙</button>
+</header>
+
+<div class="container">
+  <div class="card" onclick="toggleSection('telegram')">
+    <i class='bx bxl-telegram'></i>
+    <h4>Telegram</h4>
+  </div>
+  <div class="card" onclick="toggleSection('tiktok')">
+    <i class='bx bxl-tiktok'></i>
+    <h4>TikTok</h4>
+  </div>
+  <div class="card" onclick="toggleSection('facebook')">
+    <i class='bx bxl-facebook'></i>
+    <h4>Facebook</h4>
+  </div>
+  <div class="card" onclick="toggleSection('youtube')">
+    <i class='bx bxl-youtube'></i>
+    <h4>YouTube</h4>
+  </div>
+  <div class="card" onclick="toggleSection('instagram')">
+    <i class='bx bxl-instagram'></i>
+    <h4>Instagram</h4>
+  </div>
+</div>
+
+<!-- Sections -->
+<div id="telegram" class="section">
+  <h3><i class='bx bxl-telegram'></i> Telegram Services</h3>
+  <select id="telegramSelect">
+    <option>Post View 1k - 2500 Ks</option>
+    <option>Post Rec 1k - 3000 Ks</option>
+    <option>Myanmar Subs 1k - 7500 Ks</option>
+    <option>Foreign Subs 1k - 5000 Ks</option>
+    <option>Poll 1k - 9000 Ks</option>
+    <option>50 Stars - 4200 Ks</option>
+  </select><br>
+  <button class="buy" onclick="buyService('Telegram','telegramSelect')">Buy Now</button>
+</div>
+
+<div id="tiktok" class="section">
+  <h3><i class='bx bxl-tiktok'></i> TikTok Services</h3>
+  <select id="tiktokSelect">
+    <option>Likes 1k - 1500 Ks</option>
+    <option>Views 1k - 10000 Ks</option>
+    <option>Myanmar Followers 1k - 15000 Ks</option>
+    <option>Foreign Followers 1k - 7000 Ks</option>
+    <option>Comments 1k (emoji) - 8000 Ks</option>
+    <option>Comments 1k (custom) - 18000 Ks</option>
+  </select><br>
+  <button class="buy" onclick="buyService('TikTok','tiktokSelect')">Buy Now</button>
+</div>
+
+<div id="facebook" class="section">
+  <h3><i class='bx bxl-facebook'></i> Facebook Services</h3>
+  <select id="facebookSelect">
+    <option>Page Likes 1k - 18000 Ks</option>
+    <option>Profile Followers 1k - 20000 Ks</option>
+    <option>Comments 1k - 98000 Ks</option>
+    <option>Shares 1k - 9000 Ks</option>
+  </select><br>
+  <button class="buy" onclick="buyService('Facebook','facebookSelect')">Buy Now</button>
+</div>
+
+<div id="youtube" class="section">
+  <h3><i class='bx bxl-youtube'></i> YouTube Services</h3>
+  <select id="youtubeSelect">
+    <option>Subscribers 1k - 79000 Ks</option>
+    <option>Likes 1k - 3600 Ks</option>
+    <option>Views 1k - 8000 Ks</option>
+  </select><br>
+  <button class="buy" onclick="buyService('YouTube','youtubeSelect')">Buy Now</button>
+</div>
+
+<div id="instagram" class="section">
+  <h3><i class='bx bxl-instagram'></i> Instagram Services</h3>
+  <select id="instagramSelect">
+    <option>Followers 1k - 29500 Ks</option>
+    <option>Likes 1k - 2500 Ks</option>
+  </select><br>
+  <button class="buy" onclick="buyService('Instagram','instagramSelect')">Buy Now</button>
+</div>
+
+<!-- Floating Chat -->
+<button class="chat-btn" onclick="window.open('https://t.me/ko_ko_kizz','_blank')">💬</button>
+
+<script>
+function toggleSection(id){
+  let sec=document.getElementById(id);
+  if(sec.style.display==="block"){
+    sec.style.display="none";
+  } else {
+    sec.style.display="block";
+    sec.scrollIntoView({behavior:'smooth'});
+  }
+}
+
+function buyService(platform, selectId){
+  let sel=document.getElementById(selectId);
+  let service=sel.options[sel.selectedIndex].text;
+  window.open(`https://t.me/ko_ko_kizz?text=I%20want%20${service}%20for%20${platform}`,'_blank');
+}
+
+function toggleMode(){
+  document.body.classList.toggle("dark");
+}
+</script>
+
+</body>
+</html>
